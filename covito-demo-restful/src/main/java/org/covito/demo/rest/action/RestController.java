@@ -1,8 +1,6 @@
 package org.covito.demo.rest.action;
 
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.covito.demo.rest.JsonReturn;
 import org.covito.demo.rest.JsonReturnHelper;
 import org.springframework.stereotype.Controller;
@@ -14,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.github.inspektr.audit.annotation.Audit;
+
 @Controller
 @RequestMapping
 public class RestController {
@@ -24,10 +24,11 @@ public class RestController {
         return JsonReturnHelper.ok(id);
     }
 
-    @RequestMapping("/json/index")  
-    public ModelAndView testLogin(@RequestParam(value="id") Integer id) {
+    @RequestMapping("/json/index")
+    @Audit(action="REST", actionResolverName="REST_RESOLVER", resourceResolverName="REST_RESOURCE_RESOLVER")
+    public ModelAndView index(@RequestParam(value="id") Integer id) {
 
-    	return new ModelAndView(new RedirectView(id+""));  
+    	return new ModelAndView(new RedirectView(id+"")); 
     }
   
 }

@@ -10,6 +10,15 @@
 		</param-value>
 	</context-param>
 
+	<filter>
+		<filter-name>Inspektr-Audit</filter-name>
+		<filter-class>com.github.inspektr.common.web.ClientInfoThreadLocalFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Inspektr-Audit</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

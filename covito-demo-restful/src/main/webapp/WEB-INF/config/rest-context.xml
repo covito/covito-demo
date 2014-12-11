@@ -11,6 +11,8 @@
 	<description>Spring Configuration</description>
 
 	<context:component-scan base-package="org.covito.demo.rest.action" />
+	
+	<import resource="audit.xml"/>
 
 	<mvc:annotation-driven />
 
