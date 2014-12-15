@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       		http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+	<!-- 方法三：通过aop标签 -->
+	<aop:config proxy-target-class="true">
+		<aop:advisor id="advisor1" advice-ref="baseBefore" pointcut="execution(* org.covito.demo.aop.IBaseBusiness.*(..))" order="0" />
+		<aop:advisor id="advisor2" advice-ref="baseAfterReturn" pointcut="execution(* org.covito.demo.aop.IBaseBusiness.*(..))" order="1" />
+		<aop:advisor id="advisor3" advice-ref="baseAfterThrows" pointcut="execution(* org.covito.demo.aop.IBaseBusiness.delete(..))" order="2" />
+		<aop:advisor id="advisor4" advice-ref="baseAround" pointcut="execution(* org.covito.demo.aop.IBaseBusiness.*(..))" order="4" />
+	</aop:config>
+	
+</beans>

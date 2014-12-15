@@ -9,6 +9,7 @@
 		<module>covito-demo-nutz</module>
 		<module>covito-demo-nodejs</module>
 		<module>covito-demo-restful</module>
+		<module>covito-demo-aop</module>
 	</modules>
 	<properties>
 		<jdk.version>1.7</jdk.version>

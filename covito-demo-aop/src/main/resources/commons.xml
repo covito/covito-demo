@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       		http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+	<bean id="baseBusiness" class="org.covito.demo.aop.BaseBusiness" />
+	
+	<!-- 声明通知类 -->
+	<bean id="baseBefore" class="org.covito.demo.aop.BaseBeforeAdvice" />
+	<bean id="baseAfterReturn" class="org.covito.demo.aop.BaseAfterReturnAdvice" />
+	<bean id="baseAfterThrows" class="org.covito.demo.aop.BaseAfterThrowsAdvice" />
+	<bean id="baseAround" class="org.covito.demo.aop.BaseAroundAdvice" />
+	
+	<!-- 指定切点匹配类 -->
+	<bean id="pointcut" class="org.covito.demo.aop.Pointcut" />
+
+</beans>
